@@ -6,8 +6,12 @@ class Movie extends Component {
   static contextType = MyContext;
   render() {
     return (
-      <div className="col align-self-center" key={this.props.id}>
-        <div className="card" style={{ width: "12rem" }}>
+      <div
+        className="col align-self-center"
+        key={this.props.id}
+        style={{ marginBottom: "15px", marginTop: "15px" }}
+      >
+        <div className="card shadow " style={{ width: "12rem" }}>
           {this.props.image === null ? (
             <img
               className="card-img-top"

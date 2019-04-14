@@ -23,19 +23,19 @@ class MovieDetails extends Component {
         });
       });
     return (
-      <div class="card mb-3">
+      <div class="card bg-dark text-white">
         <img
-          class="card-img-top"
-          style={{ height: "50" }}
+          class="card-img"
           src={`https://image.tmdb.org/t/p/original${
             this.state.movieDetails.backdrop_path
           }`}
+          alt="Card image"
         />
-        <div class="card-body">
+        <div class="card-img-overlay">
           <h5 class="card-title">{this.state.movieDetails.original_title}</h5>
           <p class="card-text">{this.state.movieDetails.overview}</p>
           <p class="card-text">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            Release Date: {this.state.movieDetails.release_date}
           </p>
         </div>
       </div>
