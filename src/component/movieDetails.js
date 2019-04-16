@@ -29,7 +29,7 @@ class MovieDetails extends Component {
           src={`https://image.tmdb.org/t/p/original${
             this.state.movieDetails.backdrop_path
           }`}
-          alt="Card image"
+          alt=""
         />
         <div class="card-img-overlay">
           <h5 class="card-title">{this.state.movieDetails.original_title}</h5>

@@ -7,13 +7,22 @@ class SearchResult extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          {this.context.myState.searchResult.map(movie => {
-            return <Movie id={movie.id} image={movie.poster_path} />;
-          })}
+      <React.Fragment>
+        <div className="container">
+          <div className="row justify-content-center">
+            {this.context.myState.searchResult.map(movie => {
+              return (
+                <div key={movie.id}>
+                  <Movie id={movie.id} image={movie.poster_path} />
+                </div>
+              );
+            })}
+          </div>
+
+          {/* <button>Prev</button>
+        <button>Next</button> */}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

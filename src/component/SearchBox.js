@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { MyContext } from "../context";
+import { withRouter } from "react-router-dom";
 
 class SearchBox extends Component {
   static contextType = MyContext;
+
   render() {
     return (
       <React.Fragment>
@@ -30,4 +32,4 @@ class SearchBox extends Component {
   }
 }
 
-export default SearchBox;
+export default withRouter(SearchBox);
