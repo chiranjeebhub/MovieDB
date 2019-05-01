@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, HashRouter, Route } from "react-router-dom";
 import Nav from "./component/Nav";
 
 import axios from "axios";
@@ -112,12 +112,14 @@ class App extends Component {
     return (
       <Provider value={contextProps}>
         <BrowserRouter>
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/search" component={SearchResult} />
-            <Route path="/:id" component={MovieDetails} />
-          </Switch>
+          <HashRouter basename="/">
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/search" component={SearchResult} />
+              <Route path="/:id" component={MovieDetails} />
+            </Switch>
+          </HashRouter>
         </BrowserRouter>
       </Provider>
     );

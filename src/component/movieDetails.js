@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 import { MyContext } from "../context";
 
@@ -23,20 +23,57 @@ class MovieDetails extends Component {
         });
       });
     return (
-      <div class="card bg-dark text-white">
-        <img
-          class="card-img"
-          src={`https://image.tmdb.org/t/p/original${
+      // <div class="card bg-dark text-white">
+      //   <img
+      //     class="card-img"
+      //     src={`https://image.tmdb.org/t/p/original${
+      //       this.state.movieDetails.backdrop_path
+      //     }`}
+      //     alt=""
+      //   />
+      //   <div class="card-img-overlay">
+      //     <h5 class="card-title">{this.state.movieDetails.original_title}</h5>
+      //     <p class="card-text">{this.state.movieDetails.overview}</p>
+      //     <p class="card-text">
+      //       Release Date: {this.state.movieDetails.release_date}
+      //     </p>
+      //   </div>
+      // </div>
+      <div
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${
             this.state.movieDetails.backdrop_path
-          }`}
-          alt=""
-        />
-        <div class="card-img-overlay">
-          <h5 class="card-title">{this.state.movieDetails.original_title}</h5>
-          <p class="card-text">{this.state.movieDetails.overview}</p>
-          <p class="card-text">
-            Release Date: {this.state.movieDetails.release_date}
-          </p>
+          })`,
+          height: "100vh",
+          backgroundSize: "cover"
+        }}
+      >
+        <div className="container" style={{ paddingTop: "20vh" }}>
+          <div
+            className="media jumbotron"
+            style={{ background: "rgba(220, 220, 220, 0.9)" }}
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/original${
+                this.state.movieDetails.poster_path
+              }`}
+              className="align-self-start mr-3"
+              alt="..."
+              style={{ width: "100px" }}
+            />
+            <div className="media-body">
+              <h5 className="mt-0">{this.state.movieDetails.title}</h5>
+              <p>{this.state.movieDetails.overview}</p>
+              <p>
+                Release Date: <b>{this.state.movieDetails.release_date}</b>
+              </p>
+            </div>
+          </div>
+          <Link to="/">
+            <button type="button" class="btn btn-primary">
+              Back
+            </button>
+          </Link>
         </div>
       </div>
     );

@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import Movie from "./movie";
+import React, { Component, lazy, Suspense } from "react";
+//import Movie from "./movie";
 import { MyContext } from "../context";
+
+const Movie = lazy(() => import("./movie"));
 
 class NowPlaying extends Component {
   static contextType = MyContext;
@@ -34,9 +36,11 @@ class NowPlaying extends Component {
         <div className="row justify-content-center">
           {this.context.myState.movieList.map(movie => {
             return (
-              <div key={movie.id}>
-                <Movie id={movie.id} image={movie.poster_path} />
-              </div>
+              <Suspense fallback={<div className="loader" />}>
+                <div key={movie.id}>
+                  <Movie id={movie.id} image={movie.poster_path} />
+                </div>
+              </Suspense>
             );
           })}
         </div>
